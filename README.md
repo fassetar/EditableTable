@@ -1,4 +1,3 @@
-Jquery Storage Table Plugin
+StorageTable.js
 =============
-
-A multiply purposed Editable Table Jquery Plugin.
+A multiply purposed jquery plugin for editable storage tables.
