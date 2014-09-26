@@ -1,6 +1,6 @@
 Storage Table
 =============
-[![Build Status](https://travis-ci.org/fassetar/StorageTable.js.svg?branch=master)](https://travis-ci.org/fassetar/StorageTable.js) <a href="https://www.gittip.com/fassetar/"><img src="http://img.shields.io/gittip/fassetar.png" alt="Gittip"></a>
+[![Build Status](https://travis-ci.org/fassetar/StorageTable.js.svg?branch=master)](https://travis-ci.org/fassetar/StorageTable) <a href="https://www.gittip.com/fassetar/"><img src="http://img.shields.io/gittip/fassetar.png" alt="Gittip"></a>
 
 A multiply purposed jquery plugin for editable storage tables.
 <br/>
