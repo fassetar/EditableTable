@@ -15,4 +15,9 @@ Storage Table
    style="fill:white;stroke:black;stroke-width:5;" />
    Sorry, your browser does not support inline SVG.
 </svg>-->
- 
+
+
+Things it is not
+===== 
+ - Does not sort columns
+ - Does not filter columns
