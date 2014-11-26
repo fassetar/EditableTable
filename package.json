@@ -3,6 +3,10 @@
   "description": "Jquery plugin for storage tables, display and collect user input.",
   "version": "0.0.1",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fassetar/storagetable"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "^0.10.0",
