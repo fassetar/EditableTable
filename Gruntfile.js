@@ -16,14 +16,21 @@ module.exports = function(grunt) {
 			},
 			all: ['src/tests/*.html']
 		},
+		jshint: {
+			all: ['src/js/*.js', '/src/test/**/*.js']
+		},
 		watch: {
 		    uglify: {
 		        files: 'src/js/{,*/}*.js',
 		        tasks: ['uglify']
 		    },
 			qunit: {
-				files: ['tests/*.js', 'tests/*.html'],
+				files: ['/src/tests/*.js', '/src/tests/*.html'],
 				tasks: ['qunit']
+			},
+			jshint: {
+				files: ['src/js/*.js', '/src/test/**/*.js'],
+				tasks: ['jshint']
 			}
 		}
 	});
