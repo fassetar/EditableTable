@@ -1,5 +1,6 @@
+'use strict';
+
 (function ($) {
-	'use strict';
 	var items = new array //Locations of the samples to be saved.       
 	$.fn.storageTable = function(options){
 	// Extend our default options with those provided.
