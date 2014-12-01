@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-jshint": "*",
     "grunt-contrib-qunit": ">=0.2.1",
     "grunt-contrib-watch": ">=0.3.1"
   }
