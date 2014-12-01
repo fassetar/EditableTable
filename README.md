@@ -43,7 +43,8 @@ Options
  - editable: [true|| false] //default true, allowing users to edit
  - deletable: [true||false] //default false
  - columnNames: //n+1 or provided.
- - manuelOver: //dialog/modal for manually inputting data.
+ - manualBox: //dialog/modal for manually inputting data.
+ - autoSave: [true||false] //default false
  
 API Documentation 
 =====
@@ -53,7 +54,7 @@ coming soon, this will be the calls/events you can attach to.
 Example
 ====
 <pre>
-$('.storage').storageTable({
+$('.storage').StorageTable({
   inputBy: 'vert',
   rotatable: true,
   focus: false
