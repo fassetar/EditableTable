@@ -1,10 +1,10 @@
 (function ($) {
 	"use strict";
 	var items = [];
-	$.fn.storageTable = function(options){	
-		var opts = $.extend( {}, $.fn.storageTable.defaults, options );
+	$.fn.StorageTable = function(options){	
+		var opts = $.extend( {}, $.fn.StorageTable.defaults, options );
 	};
-	$.fn.storageTable.defaults = {	
+	$.fn.StorageTable.defaults = {	
 	};
 }( jQuery));        
 
