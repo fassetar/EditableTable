@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 		uglify: {
 			dist: {
 				files: {
-					'dist/js/jquery.storagetable.min.js': [ 'src/js/{,*/}*.js' ]
+					'dist/js/jquery.storageTables.min.js': [ 'src/js/{,*/}*.js' ]
 				}
 			}
 		},
