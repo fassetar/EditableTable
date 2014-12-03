@@ -3,9 +3,8 @@
 	var items = [];
 	$.fn.StorageTable = function(options){	
 		var opts = $.extend({}, $.fn.StorageTable.defaults, options);
-		//var editedsamples = new Array(); //Locations of the samples to be saved.
-		//var currentSaved = new Array();
-		//var inputList = new Array(); //Manual Input of sample ids from the dialog box.
+		var editedsamples = []; 
+		var currentSaved = [];		
 		//Array.prototype.clean = function (deleteValue) {
 		//    for (var i = 0; i < this.length; i++) {
 		//        if (this[i] == deleteValue) {
@@ -16,112 +15,108 @@
 		//    return this;
 		//};
 
-		//#region The core
-		///****** Get Table Data Method ******/
-		//function GetID(URL) {
-		//    $('#pageAlertsSection').empty();
-		//    if (typeof (URL) === 'undefined') {
-		//        URL = '/Storage/GetStorageUnitId/';
-		//    }
-		//    inputList = [];
-		//    $.ajax(
-		//        {
-		//            type: "POST",
-		//            url: URL,
-		//            dataType: 'json',
-		//            cache: false,
-		//            data: { type: $("#UnitType").val(), id: $('#SelectedValue').val() },
-		//            beforeSend: function () { showStandardProcessingDialog(); },
-		//            success: function (data) {
-		//                $.each(data.unitItem, function (key, value) {
-		//                    if (data.unitItem[key].sampleid)
-		//                        currentSaved.push([data.unitItem[key].sampleid, data.unitItem[key].storageunitid]);
-		//                });
-		//                $('#DisplayString').text(data.displayLabel); //Display String for Sample Location
-		//                $('thead').not('tr:first').empty();//Placed here for short appearance change.
-		//                $('tbody').empty();//Shorting the time a Table is Empty.                
-		//                try {
-		//                    $("#SelectedValue").val(data.unitItem[0].parentid);
-		//                } catch (e) {
-		//                    $("#SelectedValue").val("Error");
-		//                }
-		//                if ($('#PrintLabel').attr('href')) {
-		//                    var printurl = $('#PrintLabel').attr('href').substring(0, 53);
-		//                    printurl += $("#SelectedValue").val();
-		//                    $('#PrintLabel').attr('href', printurl);
-		//                }
-		//                var row = '';
-		//                var thead = '<tr><th>&#8195;</th>';
-		//                var column = 8;//minimum number of columns
-		//                if (data.unitItem.length == 72)
-		//                    column = 12;
-		//                else if (data.unitItem.length == 81)
-		//                    column = 9;
-		//                else if (data.unitItem.length == 80)
-		//                    column = 16;
-		//                else if (data.unitItem.length == 100)
-		//                    column = 10;
-		//                else if ($("#UnitType").val() == "Tank") {
-		//                    column = 2;
-		//                }
-		//                if ($("#UnitType").val() == "Plate" || $("#UnitType").val() == "Box-8x12") {
-		//                    column = 12;
-		//                    for (var i = 1; i <= column; i++) {
-		//                        if (data.unitItem[i - 1].storageunitlabel)
-		//                            thead += '<th>' + data.unitItem[i - 1].storageunitlabel + '</th>';
-		//                        else
-		//                            thead += '<th>' + i + '</th>';
-		//                    }
-		//                } else {
-		//                    for (var i = 1; i <= column; i++) {
-		//                        try {
-		//                            thead += '<th>' + data.unitItem[i - 1].storageunitlabel + '</th>';
-		//                        }
-		//                        catch (ex) {
-		//                            thead += '<th>' + i + '</th>';
-		//                        }
-		//                    }
-		//                }
-		//                thead += '</tr>';
-		//                $('thead').append(thead);
+		//#region The core		
+		function GetID(URL) {		    
+			var inputList = [];
+			$.ajax(
+				{
+					type: "POST",
+					url: URL,
+					dataType: 'json',
+					cache: false,
+					data: { type: $("#UnitType").val(), id: $('#SelectedValue').val() },
+					beforeSend: function () { showStandardProcessingDialog(); },
+					success: function (data) {
+						$.each(data.unitItem, function (key, value) {
+							if (data.unitItem[key].sampleid)
+								currentSaved.push([data.unitItem[key].sampleid, data.unitItem[key].storageunitid]);
+						});
+						$('#DisplayString').text(data.displayLabel); //Display String for Sample Location
+						$('thead').not('tr:first').empty();//Placed here for short appearance change.
+						$('tbody').empty();//Shorting the time a Table is Empty.                
+						try {
+							$("#SelectedValue").val(data.unitItem[0].parentid);
+						} catch (e) {
+							$("#SelectedValue").val("Error");
+						}
+						if ($('#PrintLabel').attr('href')) {
+							var printurl = $('#PrintLabel').attr('href').substring(0, 53);
+							printurl += $("#SelectedValue").val();
+							$('#PrintLabel').attr('href', printurl);
+						}
+						var row = '';
+						var thead = '<tr><th>&#8195;</th>';
+						var column = 8;//minimum number of columns
+						if (data.unitItem.length == 72)
+							column = 12;
+						else if (data.unitItem.length == 81)
+							column = 9;
+						else if (data.unitItem.length == 80)
+							column = 16;
+						else if (data.unitItem.length == 100)
+							column = 10;
+						else if ($("#UnitType").val() == "Tank") {
+							column = 2;
+						}
+						if ($("#UnitType").val() == "Plate" || $("#UnitType").val() == "Box-8x12") {
+							column = 12;
+							for (var i = 1; i <= column; i++) {
+								if (data.unitItem[i - 1].storageunitlabel)
+									thead += '<th>' + data.unitItem[i - 1].storageunitlabel + '</th>';
+								else
+									thead += '<th>' + i + '</th>';
+							}
+						} else {
+							for (var z = 1; z <= column; z++) {
+								try {
+									thead += '<th>' + data.unitItem[z - 1].storageunitlabel + '</th>';
+								}
+								catch (ex) {
+									thead += '<th>' + z + '</th>';
+								}
+							}
+						}
+						thead += '</tr>';
+						$('thead').append(thead);
 
-		//                $.each(data.unitItem, function (key, value) {
-		//                    if (key % column == 0) {
-		//                        if ($("#UnitType").val() == "Plate" || $("#UnitType").val() == "Box-8x12") {
-		//                            var letter = String.fromCharCode('A'.charCodeAt() + (key / column));
-		//                            row += '<tr><td data-avail="Y">' + data.unitItem[key].storageunitlabel + '</td>';
-		//                        } else
-		//                            row += '<tr><td data-avail="Y">' + data.unitItem[key].storageunitlabel + '</td>';
-		//                    }
+						$.each(data.unitItem, function (key, value) {
+							if (key % column === 0) {
+								if ($("#UnitType").val() == "Plate" || $("#UnitType").val() == "Box-8x12") {
+									var letter = String.fromCharCode('A'.charCodeAt() + (key / column));
+									row += '<tr><td data-avail="Y">' + data.unitItem[key].storageunitlabel + '</td>';
+								} else
+									row += '<tr><td data-avail="Y">' + data.unitItem[key].storageunitlabel + '</td>';
+							}
 
-		//                    if (value.sampleid)//case for editable samples!
-		//                        row += '<td data-avail="N" id="' + value.storageunitid + '">' + value.sampleid + '</td>';
-		//                    else {
-		//                        row += '<td data-avail="Y" id="' + value.storageunitid + '">&#8195;<input class="editable" col="' + ((key) % column + 1) + '" type="text" maxlength="11" /></td>';
-		//                    }
+							if (value.sampleid)//case for editable samples!
+								row += '<td data-avail="N" id="' + value.storageunitid + '">' + value.sampleid + '</td>';
+							else {
+								row += '<td data-avail="Y" id="' + value.storageunitid + '">&#8195;<input class="editable" col="' + ((key) % column + 1) + '" type="text" maxlength="11" /></td>';
+							}
 
-		//                    if ((key + 1) % column == 0) {
-		//                        row += '</tr>';
-		//                    }
-		//                });
-		//                $('table tbody').append(row);
-		//                EditBoxes();
-		//            },
-		//            complete: function () {
-		//                $.unblockUI();
-		//                GetDisplayString();
-		//                try {
-		//                    $('.editable').get(0).focus();//Gets focus on page load only.
-		//                } catch (error) {
-		//                    console.log("this table is full!");
-		//                }
-		//            },
-		//            error: function () {
-		//                $.unblockUI();
-		//                alert("There was an error retrieving this sample id!");
-		//            }
-		//        });
-		//};
+							if ((key + 1) % column === 0) {
+								row += '</tr>';
+							}
+						});
+						$('table tbody').append(row);
+						new EditBoxes();
+					},
+					complete: function () {
+						$.unblockUI();
+						new GetDisplayString();
+						try {
+							//Gets focus on page load only.
+							$('.editable').get(0).focus();
+						} catch (error) {
+							console.log("this table is full!");
+						}
+					},
+					error: function () {
+						$.unblockUI();
+						alert("There was an error retrieving this sample id!");
+					}
+				});
+		}
 		//end region
 	};
 
@@ -153,6 +148,7 @@
 	$.fn.StorageTable.focus = function () { };
 
 	$.fn.StorageTable.manualBox = function () {
+		var inputList = [];
 		///****** List Input Button ******/
 		//$('#btnListInput').click(function () {
 		//    $('#pageAlertsSection').empty();
@@ -307,6 +303,19 @@
 	$.fn.StorageTable.deletable = function () { };		
 	$.fn.StorageTable.editable = function () { };
 
+	//API Methods/event listener
+	$.fn.StorageTable.beforeData = function (err) {        
+		$('#pageAlertsSection').empty();
+		if (typeof (URL) === 'undefined') {
+			URL = '/Storage/GetStorageUnitId/';
+		}
+	};
+	$.fn.StorageTable.afterData = function (err) {	    
+		$('#pageAlertsSection').empty();
+		if (typeof (URL) === 'undefined') {
+			URL = '/Storage/GetStorageUnitId/';
+		}
+	};
 }( jQuery));        
 
 
@@ -411,6 +420,5 @@
 //            temptArray.push(editedsamples[i]);
 //        }
 //    }
-//    console.log(temptArray);
 //    editedsamples = temptArray;
 //}
