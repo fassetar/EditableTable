@@ -7,7 +7,7 @@ Storage Tables
 
 Requirements
 =====
-Grunt ~0.10
+Grunt ~0.10<br/>
 Jquery ~2.00
 
 Getting Started
@@ -30,8 +30,6 @@ coming soon...
 
 Options
 ====
->defaults, coming soon...
-
  - tableTemplate: //html table tag and it's content.
  - titleTemplate: //header above the table tag. 
  - columnTemplate: 
