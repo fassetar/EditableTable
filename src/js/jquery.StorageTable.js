@@ -1,7 +1,7 @@
-(function ($) {
-	"use strict";
+(function ($) {	
 	var items = [];
-	$.fn.StorageTable = function(options){	
+	$.fn.StorageTable = function (options) {
+		//#region core
 		var opts = $.extend({}, $.fn.StorageTable.defaults, options);
 		var editedsamples = []; 
 		var currentSaved = [];		
@@ -14,12 +14,10 @@
 		//    }
 		//    return this;
 		//};
-
-		//#region The core		
+		
 		function GetID(URL) {		    
 			var inputList = [];
-			$.ajax(
-				{
+			$.ajax({
 					type: "POST",
 					url: URL,
 					dataType: 'json',
@@ -137,6 +135,9 @@
 	//        }
 	//    });
 	//}
+
+	//properties
+	$.fn.StorageTable.dataType = "";
 	$.fn.StorageTable.columnTemplate = "";
 	$.fn.StorageTable.columnNames = function () { };
 
@@ -273,30 +274,28 @@
 		//});
 	};
 
-	//#region pagination
 	//TODO: working progress, and needs requirements.
 	//$.fn.StorageTable.pagination = function () {
-	///****** Prev. Item Button ******/
-	//$('#btnPrevItem').click(function () {
-	//    GetID('/Storage/FindPrevStorageId/');
-	//    editedsamples = [];
-	//    inputList = [];
-	//});
-	///****** Next Item Button ******/
-	//$('#btnNextItem').click(function () {
-	//    GetID('/Storage/FindNextStorageId/');
-	//    editedsamples = [];
-	//    inputList = [];
-	//});
-	///****** Back/Previous Page Button ******/
-	//$('#bntBack').click(function () {
-	//    if (editedsamples != 0) {
-	//        if (!confirm("You have edits that are not saved are you sure?"))
-	//        { event.preventDefault(); }
-	//    }
-	//});
-	//};
-	//end region
+		///****** Prev. Item Button ******/
+		//$('#btnPrevItem').click(function () {
+		//    GetID('/Storage/FindPrevStorageId/');
+		//    editedsamples = [];
+		//    inputList = [];
+		//});
+		///****** Next Item Button ******/
+		//$('#btnNextItem').click(function () {
+		//    GetID('/Storage/FindNextStorageId/');
+		//    editedsamples = [];
+		//    inputList = [];
+		//});
+		///****** Back/Previous Page Button ******/
+		//$('#bntBack').click(function () {
+		//    if (editedsamples != 0) {
+		//        if (!confirm("You have edits that are not saved are you sure?"))
+		//        { event.preventDefault(); }
+		//    }
+		//});
+	//};	
 
 
 	//Adminstration settings
@@ -317,10 +316,6 @@
 		}
 	};
 }( jQuery));        
-
-
-
-
 
 
 ///****** Edit Box Listener ******/
