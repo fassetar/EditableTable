@@ -58,4 +58,3 @@ $('.storage').StorageTable({
   focus: false
 });
 </pre>
-
