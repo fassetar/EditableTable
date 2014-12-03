@@ -128,20 +128,20 @@
 	//Editable Templates
 	$.fn.StorageTable.tableTemplate = "body of table here.";
 	//TODO: working progress on requirements.
-    //$.fn.StorageTable.titleTemplate = ""; 
-    ///****** Display Sample ID ******/
-    //function GetDisplayString() {
-    //    $.ajax({
-    //        type: "GET",
-    //        url: '/Storage/StoreID/',
-    //        dataType: 'json',
-    //        data: { id: $("#SelectedValue").val() },
-    //        cache: false,
-    //        success: function (data) {
-    //            $('#DisplayString').text(data);
-    //        }
-    //    });
-    //}
+	//$.fn.StorageTable.titleTemplate = ""; 
+	///****** Display Sample ID ******/
+	//function GetDisplayString() {
+	//    $.ajax({
+	//        type: "GET",
+	//        url: '/Storage/StoreID/',
+	//        dataType: 'json',
+	//        data: { id: $("#SelectedValue").val() },
+	//        cache: false,
+	//        success: function (data) {
+	//            $('#DisplayString').text(data);
+	//        }
+	//    });
+	//}
 	$.fn.StorageTable.columnTemplate = "";
 	$.fn.StorageTable.columnNames = function () { };
 
