@@ -1,20 +1,14 @@
 (function ($) {	
+	"use strict";
 	var items = [];
-	$.fn.StorageTable = function (options) {
+	$.fn.storageTable = function (options) {
 		//#region core
-		var opts = $.extend({}, $.fn.StorageTable.defaults, options);
+		var opts = $.extend({}, defaults, options);		
 		var editedsamples = []; 
-		var currentSaved = [];		
-		//Array.prototype.clean = function (deleteValue) {
-		//    for (var i = 0; i < this.length; i++) {
-		//        if (this[i] == deleteValue) {
-		//            this.splice(i, 1);
-		//            i--;
-		//        }
-		//    }
-		//    return this;
-		//};
-		
+		var currentSaved = [];
+		// var defaults = {			
+		// };
+				
 		function GetID(URL) {		    
 			var inputList = [];
 			$.ajax({
@@ -86,7 +80,7 @@
 									row += '<tr><td data-avail="Y">' + data.unitItem[key].storageunitlabel + '</td>';
 							}
 
-							if (value.sampleid)//case for editable samples!
+							if (value.sampleid)
 								row += '<td data-avail="N" id="' + value.storageunitid + '">' + value.sampleid + '</td>';
 							else {
 								row += '<td data-avail="Y" id="' + value.storageunitid + '">&#8195;<input class="editable" col="' + ((key) % column + 1) + '" type="text" maxlength="11" /></td>';
@@ -119,9 +113,9 @@
 	};
 
 	//Editable Templates
-	$.fn.StorageTable.tableTemplate = "body of table here.";
+	$.fn.storageTable.tableTemplate = "body of table here.";
 	//TODO: working progress on requirements.
-	//$.fn.StorageTable.titleTemplate = ""; 
+	//$.fn.storageTable.titleTemplate = ""; 
 	///****** Display Sample ID ******/
 	//function GetDisplayString() {
 	//    $.ajax({
@@ -137,18 +131,18 @@
 	//}
 
 	//properties
-	$.fn.StorageTable.dataType = "";
-	$.fn.StorageTable.columnTemplate = "";
-	$.fn.StorageTable.columnNames = function () { };
+	$.fn.storageTable.dataType = "";
+	$.fn.storageTable.columnTemplate = "";
+	$.fn.storageTable.columnNames = function () { };
 
 	//Users Perferences
-	$.fn.StorageTable.inputBy = function () { };
+	$.fn.storageTable.inputBy = function () { };
 
-	$.fn.StorageTable.rotatable = function () { };
+	$.fn.storageTable.rotatable = function () { };
 
-	$.fn.StorageTable.focus = function () { };
+	$.fn.storageTable.focus = function () { };
 
-	$.fn.StorageTable.manualBox = function () {
+	$.fn.storageTable.manualBox = function () {
 		var inputList = [];
 		///****** List Input Button ******/
 		//$('#btnListInput').click(function () {
@@ -201,7 +195,7 @@
 		//});
 	};
 
-	$.fn.StorageTable.autoSave = function () {
+	$.fn.storageTable.autoSave = function () {
 		//#region autoSave function
 		//$("#btnSave").click(function (event) {
 		//    event.preventDefault();
@@ -266,7 +260,7 @@
 		//#end region
 	};
 
-	$.fn.StorageTable.clearButton = function () {	    
+	$.fn.storageTable.clearButton = function () {	    
 		//$('#btnStartOver').click(function () {
 		//    GetID();
 		//    editedsamples = [];
@@ -275,7 +269,7 @@
 	};
 
 	//TODO: working progress, and needs requirements.
-	//$.fn.StorageTable.pagination = function () {
+	//$.fn.storageTable.pagination = function () {
 		///****** Prev. Item Button ******/
 		//$('#btnPrevItem').click(function () {
 		//    GetID('/Storage/FindPrevStorageId/');
@@ -299,22 +293,22 @@
 
 
 	//Adminstration settings
-	$.fn.StorageTable.deletable = function () { };		
-	$.fn.StorageTable.editable = function () { };
+	$.fn.storageTable.deletable = function () { };		
+	$.fn.storageTable.editable = function () { };
 
 	//API Methods/event listener
-	$.fn.StorageTable.beforeData = function (err) {        
+	$.fn.storageTable.beforeData = function (err) {        
 		$('#pageAlertsSection').empty();
 		if (typeof (URL) === 'undefined') {
 			URL = '/Storage/GetStorageUnitId/';
 		}
 	};
-	$.fn.StorageTable.afterData = function (err) {	    
+	$.fn.storageTable.afterData = function (err) {	    
 		$('#pageAlertsSection').empty();
 		if (typeof (URL) === 'undefined') {
 			URL = '/Storage/GetStorageUnitId/';
 		}
-	};
+	};	
 }( jQuery));        
 
 

@@ -3,14 +3,21 @@
   <head>
       <meta charset='UTF-8' />
       <meta http-equiv='content-type' content='text/html; charset=utf-8' /> 
-      <title>Stoage Tables Testing</title> 
-      <link rel='stylesheet' href='lib/qunit-1.10.0.css'>                   
+      <title>Storage Tables Testing</title> 
+      <link rel='stylesheet' href='https://code.jquery.com/jquery-2.1.1.min.js'>                   
   </head>
-  <body>
+  <body>  
     <div id="qunit"></div>
     <div id='qunit-fixture'></div>
-	<script src='../src/js/jquery.storagetable.js'></script>       
+	<div id="table-1"></div>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src='../js/jquery.storagetable.js'></script>       
     <script src='http://code.jquery.com/qunit/qunit-1.15.0.js'></script>      
+	<script>
+		$('#table-1').storageTable({
+			dataType: "json"
+		});
+	</script>
     <script src='tests.js'></script>
   </body>
 </html>
