@@ -4,7 +4,7 @@ Storage Tables
 [![devDependency Status](https://david-dm.org/fassetar/storagetables/dev-status.svg)](https://david-dm.org/fassetar/storagetables#info=devDependencies)
 <a href="https://www.gittip.com/fassetar/"><img src="http://img.shields.io/gittip/fassetar.png" alt="Gittip"></a>
 
->Lightweight editable storage tables for users.
+>Lightweight editable storage tables.
 
 Requirements
 =====
