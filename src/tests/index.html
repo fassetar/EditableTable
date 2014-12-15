@@ -5,6 +5,15 @@
       <meta http-equiv='content-type' content='text/html; charset=utf-8' /> 
       <title>Storage Tables Testing</title> 
       <link rel='stylesheet' href='https://code.jquery.com/jquery-2.1.1.min.js'>                   
+	  <style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		th, td {
+			padding: 5px;
+		}
+</style>
   </head>
   <body>  
     <div id="qunit"></div>
@@ -15,7 +24,7 @@
     <script src='http://code.jquery.com/qunit/qunit-1.15.0.js'></script>      
 	<script>
 		$('#table-1').storageTable({
-			dataType: "json"
+			dataType: "json"			
 		});
 	</script>
     <script src='tests.js'></script>
