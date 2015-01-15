@@ -24,6 +24,7 @@ Things it does not
 ===== 
  - Does not sort columns
  - Does not filter columns
+ - Pagination
 
 Template Layout
 ====
