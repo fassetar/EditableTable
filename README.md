@@ -6,6 +6,7 @@ Storage Tables
 
 >Lightweight editable storage tables.
 
+Does not use this yet, its not ready :P
 Requirements
 =====
 Grunt ~0.10<br/>
