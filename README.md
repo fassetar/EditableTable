@@ -20,9 +20,6 @@ $('.storage').StorageTable({
 });
 </pre>
 
-Demo
-=============
-
 Things it does
 =============
   This plugin will be attached to a element and look for any tables already inside of it. If no table inside a div not will pull in content 
