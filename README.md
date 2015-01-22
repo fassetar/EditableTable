@@ -67,3 +67,7 @@ Release History
 > release version coming soon... 
 
  * 2015-01-05   v0.0.1   Started recording history notes.
+
+License
+=============
+For more information about the license, Apache License
