@@ -3,21 +3,18 @@ Storage Tables
 [![Build Status](https://travis-ci.org/fassetar/StorageTables.svg?branch=master)](https://travis-ci.org/fassetar/StorageTables)
 [![devDependency Status](https://david-dm.org/fassetar/storagetables/dev-status.svg)](https://david-dm.org/fassetar/storagetables#info=devDependencies)
 <a href="https://www.gittip.com/fassetar/"><img src="http://img.shields.io/gittip/fassetar.png" alt="Gittip"></a>
-
->Lightweight editable storage tables.
-
 Does not use this yet, its not ready :P
 Requirements
-=====
+=============
 Grunt ~0.10<br/>
 Jquery ~2.00
 
 Getting Started
-====
+=============
 coming soon...
 
 Things it does
-=====
+=============
   This plugin will be attached to a element and look for any tables already inside of it. If no table inside a div not will pull in content 
 for the table and build out that table. If a table is already provide (<b>Pre-rendered</b>) it will interprete that table and provide inputs for the user. Passing back and forward when need to the user for storaging data. Inspired by ng-grid and datatables.
 
