@@ -12,7 +12,16 @@ Jquery ~2.00
 
 Getting Started
 =============
-coming soon...
+<pre>
+$('.storage').StorageTable({
+  inputBy: 'vert',
+  rotatable: true,
+  focus: false
+});
+</pre>
+
+Demo
+=============
 
 Things it does
 =============
@@ -48,17 +57,6 @@ Options
 API Documentation 
 =====
 coming soon, this will be the calls/events you can attach to.
-
-
-Example
-====
-<pre>
-$('.storage').StorageTable({
-  inputBy: 'vert',
-  rotatable: true,
-  focus: false
-});
-</pre>
 
 Release History
 =============
