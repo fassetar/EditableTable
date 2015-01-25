@@ -57,7 +57,6 @@ coming soon, this will be the calls/events you can attach to.
 
 Release History
 =============
-> release version coming soon... 
 
  * 2015-01-05   v0.0.1   Started recording history notes.
 
