@@ -13,5 +13,6 @@ test("real tests", function (assert) {
     $('#table-2').storageTable({
         dataType: "json"        
     });
-	assert.expect(0);
+    assert.strictEqual($('#table-1 thead th').length, 10);
+    assert.strictEqual($('#table-1 tbody td').length, 10);
 });
