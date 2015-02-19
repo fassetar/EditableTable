@@ -10,51 +10,50 @@
 	        deletable: false,	        
 	        inputBy: true,
 	        focus: false,
-	        columns: []
-	    }, options);
-	    var opts = $.extend({}, options);	    
-	    	    
-	    //var editedsamples = [], currentSaved = [];
-		if ($(this).is(':empty')) {
-		    $(this).append(_fnTableTemplate());
+	        columns: [],
+            title: "test"
+	    }, options);	    	    	    
+	    
+		if (this.is(':empty') || this.is('table')) {
+		    return this.append(_fnTableTemplate());
 		} else {
-		    //_fnTableTemplate(); Look for all table elements.
 		    //TODO: attack handlers for ajax calls and other stuff.
 		    //Add Inputs on clicks or &nbsp;
+		    return this;		    
 		}
-	};
 
-	//Editable Templates
-	function _fnTableTemplate(title, head, body) {
-	    title = typeof title !== 'undefined' ? '<caption>' + title + '</caption>' : "";
+	    //Editable Templates
+	    function _fnTableTemplate(head, body) {
+	        settings.title = typeof settings.title !== 'undefined' ? '<caption>' + settings.title + '</caption>' : "";
 
-	    head = typeof head !== 'undefined' ? head : _fnCreateHeader();
+	        head = typeof head !== 'undefined' ? head : _fnCreateHeader();
 
-	    body = typeof body !== 'undefined' ? body : _fnCreateColumn();
+	        body = typeof body !== 'undefined' ? body : _fnCreateColumn();
 
-		return '<table>' + title + head + body + '</table>';
-	}
-
-	$.fn.storageTable.columns = function (template) {
-	    template = typeof template !== 'undefined' ? template : "";
-	    _fnCreateColumn();
-	};
-
-	function _fnCreateHeader() {
-	    var colNum = 10;
-	    var thead = '<thead><tr>';
-	    for (var i = 1; i <= colNum; i++) {
-	        thead += '<th>' + i + '</th>';
+	        return '<table>' + settings.title + head + body + '</table>';
 	    }
-	    return thead + '</tr></thead>';
-	}
 
-	function _fnCreateColumn() {
-	    var colNum = 10, tbody = "<tbody><tr>"        
-	    //NOTES: Chrome by default wrapping with tbody.
-	    for (var t = 1; t <= colNum; t++) {
-	        tbody += '<td>' + t + '</td>';
+	    $.fn.storageTable.columns = function (template) {
+	        template = typeof template !== 'undefined' ? template : "";
+	        _fnCreateColumn();
+	    };
+
+	    function _fnCreateHeader() {
+	        var colNum = 10;
+	        var thead = '<thead><tr>';
+	        for (var i = 1; i <= colNum; i++) {
+	            thead += '<th>' + i + '</th>';
+	        }
+	        return thead + '</tr></thead>';
 	    }
-	    return tbody + '</tr></tbody>';
-	}			
-}( jQuery));
+
+	    function _fnCreateColumn() {
+	        var colNum = 10, tbody = '<tbody><tr>';     
+	        //NOTES: Chrome by default wrapping with tbody.
+	        for (var t = 1; t <= colNum; t++) {
+	            tbody += '<td>' + t + '</td>';
+	        }
+	        return tbody + '</tr></tbody>';
+	    }	
+	};
+}(jQuery));

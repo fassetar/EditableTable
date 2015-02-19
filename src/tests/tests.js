@@ -8,7 +8,7 @@ test("basic", function() {
 test("real tests", function (assert) {
     $('#table-1').storageTable({
         dataType: "json",
-        title: "Example 1"
+        title: "Example 1 + Z"
     });
     $('#table-2').storageTable({
         dataType: "json"        
