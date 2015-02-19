@@ -4,7 +4,6 @@ Storage Tables
 [![Build Status](https://travis-ci.org/fassetar/StorageTables.svg?branch=master)](https://travis-ci.org/fassetar/StorageTables)
 [![devDependency Status](https://david-dm.org/fassetar/storagetables/dev-status.svg)](https://david-dm.org/fassetar/storagetables#info=devDependencies)
 <a href="https://www.gittip.com/fassetar/"><img src="http://img.shields.io/gittip/fassetar.svg" alt="Gittip"></a><br/>
->Do not use this yet
 
 Requirements
 =============
