@@ -1,4 +1,4 @@
-Storage Tables
+Storage Tables - Jquery Plugin
 =============
 [![GitHub release](https://img.shields.io/badge/Alpha-0.0.2-red.svg)]()
 [![Build Status](https://travis-ci.org/fassetar/StorageTables.svg?branch=master)](https://travis-ci.org/fassetar/StorageTables)
@@ -37,19 +37,14 @@ coming soon...
 
 Options
 ====
- - tableTemplate: //html table tag and it's content.
- - titleTemplate: //header above the table tag. 
- - columnTemplate: 
  - inputBy: ['hori'||'vert'] || ['horizontal'||'vertical'] //order in which the next input will take focus.
  - focus: [true|| false] //default false
- - dataType: (json/csv) I won't be doing xml.
+ - ajax: (json/csv) I won't be doing xml.
  - orderBy: ['height'||'width'] || ['wide'||'tall']
  - rotatable: [true||false] //default:false
  - editable: [true|| false] //default true, allowing users to edit
  - deletable: [true||false] //default false
  - columnNames: //n+1 or provided.
- - manualBox: //dialog/modal for manually inputting data.
- - autoSave: [true||false] //default false
  
 API Documentation 
 =====
