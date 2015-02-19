@@ -15,7 +15,6 @@ Getting Started
 <pre>
 $('.storage').StorageTable({
   inputBy: 'vert',
-  rotatable: true,
   focus: false
 });
 </pre>
