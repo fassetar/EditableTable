@@ -22,7 +22,7 @@ $('.storage').StorageTable({
 Things it does
 =============
   This plugin will be attached to a element and look for any tables already inside of it. If no table inside a div not will pull in content 
-for the table and build out that table. If a table is already provide (<b>Pre-rendered</b>) it will interprete that table and provide inputs for the user. Passing back and forward when need to the user for storaging data. Inspired by ng-grid and datatables.
+for the table and build out that table. If a table is already provide (<b>Pre-rendered</b>) it will interpret that table and provide inputs for the user. Passing back and forward when need to the user for storaging data. Inspired by ng-grid and datatables.
 
 Things it does not
 ===== 
