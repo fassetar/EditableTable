@@ -51,7 +51,7 @@ coming soon, this will be the calls/events you can attach to.
 
 Release History
 =============
-
+ * 2015-02-19   v0.0.2   Filtered out function and created Alpha phase.
  * 2015-01-05   v0.0.1   Started recording history notes.
 
 License
