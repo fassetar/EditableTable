@@ -43,7 +43,7 @@ Options
  - rotatable: [true||false] //default:false
  - editable: [true|| false] //default true, allowing users to edit
  - deletable: [true||false] //default false
- - columnNames: //n+1 or provided.
+ - columns: //n+1 or provided.
  
 API Documentation 
 =====
