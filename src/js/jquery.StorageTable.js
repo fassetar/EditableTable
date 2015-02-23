@@ -1,5 +1,4 @@
-/* StorageTables v0.0.1
-* Copyrights 2015 by Anthony Fassett */
+/* StorageTables v0.0.2 - Copyright 2015 by Anthony Fassett */
 (function ($) {
     "use strict";
     $.fn.storageTable = function (options) {
@@ -15,11 +14,12 @@
             title: "test"
         }, options);
 
-        if (this.is(':empty') || this.is('table')) {
+        if (this.is(':empty') && this.is(':not(table)')) {
             return this.append(_fnTableTemplate());
         } else {
             //TODO: attack handlers for ajax calls and other stuff.
             //Add Inputs on clicks or &nbsp;
+            console.log("It already is a table!");
             return this;
         }
 
