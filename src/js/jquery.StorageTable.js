@@ -15,11 +15,13 @@
         }, options);
 
         if (this.is(':empty') && this.is(':not(table)')) {
-            return this.append(_fnTableTemplate());
+             _fnclickListern();
+            return this.append(_fnTableTemplate());            
         } else {
             //TODO: attack handlers for ajax calls and other stuff.
             //Add Inputs on clicks or &nbsp;
             console.log("It already is a table!");
+            _fnclickListern(this);
             return this;
         }
 
@@ -30,7 +32,6 @@
             head = typeof head !== 'undefined' ? head : _fnCreateHeader();
 
             body = typeof body !== 'undefined' ? body : _fnCreateColumn();
-
             return '<table>' + settings.title + head + body + '</table>';
         }
 
@@ -38,6 +39,11 @@
             template = typeof template !== 'undefined' ? template : "";
             _fnCreateColumn();
         };
+
+        function _fnclickListern(select) {
+            //TODO: Make this better!
+            $(select).children('table > tr > :empty(td)').append('<input type="text"/>');
+        }
 
         function _fnCreateHeader() {
             var colNum = 10;

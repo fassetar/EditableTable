@@ -11,7 +11,7 @@ test("real tests", function (assert) {
         title: "Example 1 + Z"
     });
     $('#table-2').storageTable({
-        dataType: "json"        
+        dataType: "json"
     });
     assert.strictEqual($('#table-1 thead th').length, 10);
     assert.strictEqual($('#table-1 tbody td').length, 10);
