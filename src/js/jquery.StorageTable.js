@@ -18,10 +18,9 @@
              _fnclickListern();
             return this.append(_fnTableTemplate());            
         } else {
-            //TODO: attack handlers for ajax calls and other stuff.
-            //Add Inputs on clicks or &nbsp;
-            console.log("It already is a table!");
-            _fnclickListern(this);
+            //TODO: attack handlers for ajax calls and other stuff.//Add Inputs on clicks or &nbsp;            
+            console.log("It already is a table!");            
+            _fnclickListern();
             return this;
         }
 
@@ -40,9 +39,13 @@
             _fnCreateColumn();
         };
 
-        function _fnclickListern(select) {
+        function _fnclickListern() {
             //TODO: Make this better!
-            $(select).children('table > tr > :empty(td)').append('<input type="text"/>');
+            $('td:empty').append('<input type="text"/>');
+            $(':input').change(function () {
+
+            });
+            
         }
 
         function _fnCreateHeader() {
@@ -58,7 +61,12 @@
             var colNum = 10, tbody = '<tbody><tr>';
             //NOTES: Chrome by default wrapping with tbody.
             for (var t = 1; t <= colNum; t++) {
-                tbody += '<td>' + t + '</td>';
+                if (t === 5) {
+                    tbody += '<td></td>';
+                }                    
+                else { 
+                    tbody += '<td>' + t + '</td>';
+                }
             }
             return tbody + '</tr></tbody>';
         }
