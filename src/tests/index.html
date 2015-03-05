@@ -3,24 +3,23 @@
   <head>
       <meta charset='UTF-8' />
       <meta http-equiv='content-type' content='text/html; charset=utf-8' />
-      <title>Storage Tables Testing</title> 
-      <link rel='stylesheet' href='https://code.jquery.com/jquery-2.1.1.min.js'>
-      <style>table, th, td {border: 1px solid black; border-collapse: collapse;}th, td { padding: 5px; }</style>
+      <title>Storage Tables Testing</title>
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
   </head>
   <body>  
     <div id="qunit"></div>
     <div id='qunit-fixture'></div>
     <div id="table-1"></div>
     <div id="table-2">
-        <table>
+        <table class="table table-bordered">
              <caption>Example #2</caption>
              <thead><tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr></thead>
              <tbody><tr><td>1</td><td>2</td><td>3</td><td>4</td><td></td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr></tbody>
         </table>
     </div>
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src='../js/jquery.storagetable.js'></script>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>    
     <script src='http://code.jquery.com/qunit/qunit-1.15.0.js'></script>
+    <script src='../js/jquery.storagetable.js'></script>
     <script src='tests.js'></script>
   </body>
 </html>

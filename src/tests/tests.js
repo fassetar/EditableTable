@@ -6,13 +6,11 @@ test("basic", function() {
    notEqual(0, true, "not equal test with 0");
 });
 test("real tests", function (assert) {
-    $('#table-1').storageTable({
-        dataType: "json",
-        title: "Example 1 + Z"
+    $('#table-1').storageTable({        
+        title: "Example 1 + Z",
+        get: "test.json"
     });
-    $('#table-2').storageTable({
-        dataType: "json"
-    });
+    $('#table-2').storageTable();
     assert.strictEqual($('#table-1 thead th').length, 10);
     assert.strictEqual($('#table-1 tbody td').length, 10);
 });

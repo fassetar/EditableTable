@@ -3,33 +3,35 @@
     "use strict";
     $.fn.storageTable = function (options) {
         var settings = $.extend({
-            // These are the defaults.
-            dataType: "json",
+            // These are the defaults.            
             data: [],
             editable: false,
-            deletable: false,
             inputBy: true,
             focus: false,
             columns: [],
-            title: "test"
+            title: "test",
+            get: ""
         }, options);
 
-        if (this.is(':empty') && this.is(':not(table)')) {
-             _fnclickListern();
-            return this.append(_fnTableTemplate());            
+        if (this.is(':empty') && this.find(':not(table)')) {
+            console.log("Building a Table.");
+            this.append(_fnTableTemplate());
+            _fnClickListern(this);
+            if (settings.get)
+                _fnPullData(settings.get);
+            return this;
         } else {
-            //TODO: attack handlers for ajax calls and other stuff.//Add Inputs on clicks or &nbsp;            
-            console.log("It already is a table!");            
-            _fnclickListern();
+            //TODO: attack handlers for ajax calls and other stuff. 
+            //Add Inputs on clicks or &nbsp;
+            console.log("It already is a table!");
+            _fnClickListern(this);
             return this;
         }
 
         //Editable Templates
         function _fnTableTemplate(head, body) {
             settings.title = typeof settings.title !== 'undefined' ? '<caption>' + settings.title + '</caption>' : "";
-
             head = typeof head !== 'undefined' ? head : _fnCreateHeader();
-
             body = typeof body !== 'undefined' ? body : _fnCreateColumn();
             return '<table>' + settings.title + head + body + '</table>';
         }
@@ -39,13 +41,24 @@
             _fnCreateColumn();
         };
 
-        function _fnclickListern() {
-            //TODO: Make this better!
-            $('td:empty').append('<input type="text"/>');
-            $(':input').change(function () {
+        function _fnPullData(uri) {
+            $.getJSON(uri, function (json) {
+                console.log(json);
+            });            
+        }
 
+        function _fnClickListern(Obj) {
+            //TODO: Make this better!
+            $('td:empty').append('<input type="text" data-capture />');
+            $(Obj).find('[data-capture]').focus(function () {
+                $(this).attr("data-focused", true);
+                $(this).change(function () {
+                    if (this.value !== "")
+                        console.log(this);
+                });
+            }).blur(function () {
+                $(this).removeAttr("data-focused");
             });
-            
         }
 
         function _fnCreateHeader() {
@@ -63,8 +76,8 @@
             for (var t = 1; t <= colNum; t++) {
                 if (t === 5) {
                     tbody += '<td></td>';
-                }                    
-                else { 
+                }
+                else {
                     tbody += '<td>' + t + '</td>';
                 }
             }
