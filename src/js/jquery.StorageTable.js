@@ -1,4 +1,4 @@
-/* StorageTables v0.0.2 - Copyright 2015 by Anthony Fassett */
+/* StorageTables v0.0.3 - Copyright 2015 by Anthony Fassett */
 (function ($) {
     "use strict";
     $.fn.storageTable = function (options) {
@@ -15,25 +15,29 @@
 
         if (this.is(':empty') && this.find(':not(table)')) {
             console.log("Building a Table.");
-            if (settings.get)
-                _fnPullData(settings.get, function () {                    
-                    this.append(_fnTableTemplate());
-                    _fnClickListern(this);
-                });
-            return this;
+            if (settings.get) {
+                _fnPullData(settings.get);
+                console.log("called!");
+                this.append(_fnTableTemplate());
+                //vs.
+                //this.append(_fnTableTemplate());                        
+                //this.append(_fnTableTemplate());
+            }
         } else {
-            //TODO: attack handlers for ajax calls and other stuff. 
+            //TODO: attach handlers for ajax calls and other stuff. 
             //Add Inputs on clicks or &nbsp;
             console.log("It already is a table!");
-            _fnClickListern(this);
-            return this;
         }
+        _fnClickListern.call();
+        return this;
+
 
         //Editable Templates
         function _fnTableTemplate(head, body) {
             settings.title = typeof settings.title !== 'undefined' ? '<caption>' + settings.title + '</caption>' : "";
-            head = typeof head !== 'undefined' ? head : _fnCreateHeader();
-            body = typeof body !== 'undefined' ? body : _fnCreateColumn();
+            head = _fnCreateHeader.apply();
+            body = typeof body !== 'undefined' ? body : _fnCreateColumn.apply();
+            console.log("called!");
             return '<table>' + settings.title + head + body + '</table>';
         }
 
@@ -44,8 +48,8 @@
 
         function _fnPullData(uri) {
             $.getJSON(uri, function (json) {
-                settings.data = json;
-                console.log(settings.data);
+                settings.data = json;                
+                return this;
             });
         }
 
@@ -53,7 +57,7 @@
             //TODO: Make this better!
             $('td:empty').append('<input type="text" data-capture />');
             $(Obj).find('[data-capture]').focus(function () {
-                $(this).attr("data-focused", true);
+                $.attr("data-focused", true).call();
                 $(this).change(function () {
                     if (this.value !== "")
                         console.log(this);
@@ -64,7 +68,7 @@
         }
 
         function _fnCreateHeader() {
-            var colNum = settings.data.length;
+            var colNum = 10;//settings.data.length;
             console.log(colNum);
             var thead = '<thead><tr>';
             for (var i = 1; i <= colNum; i++) {
