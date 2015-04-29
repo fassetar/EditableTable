@@ -18,15 +18,12 @@
             if (settings.get) {
                 _fnPullData(settings.get);
                 console.log("called!");
-                this.append(_fnTableTemplate());
-                //vs.
-                //this.append(_fnTableTemplate());                        
-                //this.append(_fnTableTemplate());
+                this.append(_fnTableTemplate());                
             }
         } else {
             //TODO: attach handlers for ajax calls and other stuff. 
             //Add Inputs on clicks or &nbsp;
-            console.log("It already is a table!");
+            //console.log("It already is a table!");
         }
         _fnClickListern.call();
         return this;
@@ -36,8 +33,7 @@
         function _fnTableTemplate(head, body) {
             settings.title = typeof settings.title !== 'undefined' ? '<caption>' + settings.title + '</caption>' : "";
             head = _fnCreateHeader.apply();
-            body = typeof body !== 'undefined' ? body : _fnCreateColumn.apply();
-            console.log("called!");
+            body = typeof body !== 'undefined' ? body : _fnCreateColumn.apply();            
             return '<table>' + settings.title + head + body + '</table>';
         }
 
@@ -48,7 +44,7 @@
 
         function _fnPullData(uri) {
             $.getJSON(uri, function (json) {
-                settings.data = json;                
+                settings.data = json;
                 return this;
             });
         }
@@ -72,7 +68,7 @@
             console.log(colNum);
             var thead = '<thead><tr>';
             for (var i = 1; i <= colNum; i++) {
-                thead += '<th>' + settings.data[i] + '</th>';
+                thead += '<th>' + i + '</th>';
             }
             return thead + '</tr></thead>';
         }
