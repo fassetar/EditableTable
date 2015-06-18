@@ -36,7 +36,8 @@ coming soon...
 
 Options
 ====
- - input: [true|false] //order in which the next input will take focus.
+ - input: [true|false] //Provides input boxes.
+ - direction: [true|false] //direction in order the input will take focus. 
  - focus: [true|| false] //default false
  - ajax: (json/csv) I won't be doing xml.
  - orderBy: ['height'||'width'] || ['wide'||'tall']
