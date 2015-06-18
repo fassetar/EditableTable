@@ -37,7 +37,7 @@ coming soon...
 Options
 ====
  - input: [true|false] //Provides input boxes.
- - direction: [true|false] //direction in order the input will take focus. 
+ - direction: [true|false] //direction in order the input will take focus, by default does vertical.
  - focus: [true|| false] //default false
  - ajax: (json/csv) I won't be doing xml.
  - orderBy: ['height'||'width'] || ['wide'||'tall']
