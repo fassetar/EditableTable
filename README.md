@@ -34,6 +34,11 @@ Template Layout
 ====
 coming soon...
 
+
+Notes:
+====
+http://blog.teamtreehouse.com/writing-your-own-jquery-plugins - don't need '$'. http://johnkpaul.github.io/presentations/jqcon/plugin-unit-testing/#/8
+
 Options
 ====
  - input: [true|false] //Provides input boxes.
