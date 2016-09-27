@@ -1,7 +1,7 @@
 Storage Tables - <i>Jquery Plugin</i>
 =============
 [![GitHub release](https://img.shields.io/badge/Alpha-0.0.2-red.svg)]()
-[![Build Status](https://travis-ci.org/fassetar/StorageTables.svg?branch=master)](https://travis-ci.org/fassetar/StorageTables)
+[![Build Status](https://travis-ci.org/fassetar/storage-tables.svg?branch=master)](https://travis-ci.org/fassetar/storage-tables)
 [![devDependency Status](https://david-dm.org/fassetar/storagetables/dev-status.svg)](https://david-dm.org/fassetar/storagetables#info=devDependencies)
 <a href="https://www.gittip.com/fassetar/"><img src="http://img.shields.io/gittip/fassetar.svg" alt="Gittip"></a><br/>
 
